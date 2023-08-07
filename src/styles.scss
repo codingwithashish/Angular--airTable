@@ -1,1 +1,95 @@
-/* You can add global styles to this file, and also import other style files */
+.logo_Width {
+    width: 17rem;
+}
+
+.cusror_pointer {
+    cursor: pointer;
+}
+
+.cusror_notAllowed {
+    cursor: not-allowed;
+}
+
+.heading_Text {
+    font-size: 55px;
+    font-weight: 900;
+    font-family: sans-serif;
+    color: #5ab092;
+}
+
+.image_div {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 33px;
+}
+
+.right-border::after {
+    content: "";
+    width: 2px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 30%;
+    background: #ecedee;
+    z-index: 999;
+}
+
+.btn_Work {
+    font-size: 13px;
+    font-weight: 900;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.remove_btn {
+    background-color: #ff1800;
+    padding: 5px 6px;
+
+}
+
+.add_btn {
+    background-color: #006500;
+    padding: 5px 15px;
+
+}
+
+.disable_btn {
+    color: #b4bbc1;
+    padding: 6px 15px;
+}
+
+.btn_Work:hover {
+    background-color: #e7f0ef;
+}
+
+
+.image_div img {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: unset;
+}
+
+.vertical_align {
+    border-top: 1px solid #f3f2f3;
+    border-bottom: 1px solid #f3f2f3;
+    vertical-align: middle;
+}
+
+.custom_table thead tr th {
+    // padding: 20px 10px;
+    padding: 5px 10px;
+    color: #fff;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+.custom_table tbody tr td {
+    padding: 20px 5px;
+    color: #adb0b1;
+}
+
+.custom_table tbody tr:hover {
+    background-color: #f4f5f6;
+}

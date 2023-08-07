@@ -1,0 +1,26 @@
+.login_DivContainer {
+    border: 1px solid #59BF95;
+
+    .login_Txt {
+        font-size: 44px;
+        font-weight: 800;
+        font-family: sans-serif;
+        color: #59BF95;
+    }
+
+    .input_div {
+        border: 1px solid #CED4DA;
+
+        &:hover {
+            border: 1px solid #59BF95;
+        }
+    }
+
+    .login_Btn {
+        background-color: #59BF95;
+    }
+}
+
+.cursor_notAllow {
+    cursor: not-allowed !important;
+}

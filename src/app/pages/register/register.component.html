@@ -1,0 +1,81 @@
+<div class="container">
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                    <div class="d-flex justify-content-center py-4">
+                        <a href="index.html" class="logo d-flex align-items-center w-auto">
+                            <img class="logo_Width" src="../../../assets/lawflexlogo.png" alt="">
+                        </a>
+                    </div><!-- End Logo -->
+
+                    <div class="card mb-3 login_DivContainer">
+
+                        <div class="card-body">
+
+                            <div class="pt-4 pb-2">
+
+                                <h5 class="card-title text-center pb-0 login_Txt">Login</h5>
+                                <!-- <p class="text-center small">Enter your username & password to login</p> -->
+                            </div>
+
+                            <form [formGroup]="registerForm" (ngSubmit)="sendData(registerForm)"
+                                class="row g-3 needs-validation">
+
+                                <!-- <div class="col-12">
+                                    <label for="yourUsername" class="form-label">Username</label>
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="user name" formControlName="userName" class="form-control input_div"
+                                            id="yourUsername">
+                                        <div class="invalid-feedback">Please enter your username.</div>
+                                    </div>
+                                </div> -->
+                                <div class="col-12">
+                                    <label for="yourUsername" class="form-label">Email Id</label>
+                                    <div class="input-group has-validation">
+                                        <input type="email" class="form-control input_div" id="yourUsername"
+                                            formControlName="userEmail">
+                                        <div class="invalid-feedback">Please enter your username.</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="yourPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control input_div" id="yourPassword"
+                                        formControlName="userPswd">
+                                    <div class="invalid-feedback">Please enter your password!</div>
+                                </div>
+                                <div class="col-12">
+                                    <p class="text-danger" *ngIf="errorCheck">{{errorCheck}}</p>
+                                </div>
+
+                                <!-- <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="remember" value="true"
+                                            id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                    </div>
+                                </div> -->
+                                <div class="col-12">
+                                    <button [disabled]="registerForm.invalid"
+                                        [ngClass]="registerForm.invalid?'cursor_notAllow':'cusror_pointer'"
+                                        class="btn login_Btn text-white  fw-bold w-100" type="submit">
+                                        <span *ngIf="!loderShow">Login</span>
+                                        <div *ngIf="loderShow" class="spinner-border" role="status">
+                                        </div>
+                                    </button>
+                                </div>
+                                <!-- <div class="col-12">
+                                    <p class="small mb-0">Don't have account? <a>Create an
+                                            account</a></p>
+                                </div> -->
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

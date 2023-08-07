@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "air-table-angular": {
+    "lawflex": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/air-table-angular",
+            "outputPath": "dist/lawflex",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,9 +30,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -65,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "air-table-angular:build:production"
+              "browserTarget": "lawflex:build:production"
             },
             "development": {
-              "browserTarget": "air-table-angular:build:development"
+              "browserTarget": "lawflex:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "air-table-angular:build"
+            "browserTarget": "lawflex:build"
           }
         },
         "test": {
@@ -102,6 +104,6 @@
     }
   },
   "cli": {
-    "analytics": "6ab2162b-7978-4be6-82d3-c8dd2ee072ed"
+    "analytics": "3f36ceb0-7979-4a90-beb4-8b0fca42b0b4"
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpService } from './http.service';
+import { map, take, toArray } from 'rxjs';
+import { HttpServiceService } from 'src/appService/http-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +8,8 @@ import { HttpService } from './http.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'airtable-angular';
-  result: any;
-  constructor(private HttpService: HttpService){
+  title = 'lawflex';
+  constructor(private httpService: HttpServiceService) { }
+  ngOnInit() {
   }
-  ngOnInit(){
-    // this.HttpService.getdata().subscribe((res) => {
-    //   this.result = res;
-    //   console.log(this.result);
-    // });
-    const userData = {
-      Name: "John Doe",
-      Email: "johndoe@example.com",
-      Password: "password123",
-    };
-    this.HttpService.savedata(`https://api.airtable.com/v0/appxOuGZvte0xuK2S/user/`,userData).subscribe((res) => {
-      this.result = res;
-      console.log(this.result,'======================');
-    });
-  }
- 
 }

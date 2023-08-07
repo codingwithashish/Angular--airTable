@@ -1,0 +1,209 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <img src="../assets/lawflexlogo.png" class="logo_Width mx-auto" alt="">
+        </div>
+        <div class="col-10 mx-auto mt-5 pt-5">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            <table class="table custom_table table-hovr table-border">
+                                <thead>
+                                    <tr class="header_bgColor">
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-white right-border">Client
+                                            Name
+                                        </th>
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-white right-border">
+                                            Description</th>
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-white right-border">
+                                            Proposal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="vertical_align" *ngIf="clientInfo">
+                                        <td class="py-2"
+                                            [innerHTML]="clientInfo?.Client_Name?clientInfo?.Client_Name:'--'"></td>
+                                        <td class="py-2"
+                                            [innerHTML]="clientInfo?.Description?clientInfo?.Description:'--'"></td>
+                                        <td class="py-2" [innerHTML]="clientInfo?.Name?clientInfo?.Name:'--'"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="loader_div row" *ngIf="loader1">
+                                <div class="spinner-border mx-auto text-success" role="status">
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex align-items-center justify-content-center">
+                                <h4 class="text-danger">{{errorMsg}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 mx-auto mt-5 ">
+            <div class="row">
+
+                <div class="col me-5">
+                    <div class="row">
+                        <div class="col-12 d-flex align-items-center justify-content-between">
+                            <h3 class="m-0 fw-bold">Proposed Talents</h3>
+                            <div class="btn_div">
+                                <button class="border-0 btn_Work disable_btn">Send</button>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <table class="table custom_table table-hovr table-borderless">
+                                <thead>
+                                    <tr class="header_bgColor">
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            Button</th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            <div
+                                                class="image_div d-flex align-items-center justify-content-center overflow-hidden">
+                                            </div>
+                                        </th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">Name
+                                        </th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            Show in proposal</th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            Status</th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            Team Memo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngIf="PropasalTalentArrInfo?.length!=0">
+                                        <tr class="vertical_align"
+                                            *ngFor="let PropasalTalentArrData of PropasalTalentArrInfo;let i=index">
+                                            <td><button class="border-0 btn_Work remove_btn" #removeBtn
+                                                    (click)="removeData(PropasalTalentArrData?.id)"
+                                                    [ngClass]="resLoader?'cusror_notAllowed':'cusror_pointer'"
+                                                    [disabled]="resLoader">
+                                                    <span>
+                                                        Remove
+                                                    </span>
+                                                    <div class="spinner-border small_loader"
+                                                        *ngIf="resLoader && PropasalTalentArrData?.id==deleteId"
+                                                        role="status">
+                                                    </div>
+                                                </button></td>
+                                            <td>
+                                                <div
+                                                    class="image_div d-flex align-items-center justify-content-center overflow-hidden">
+                                                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                        alt="">
+                                                </div>
+                                            </td>
+                                            <td
+                                                [innerHTML]="PropasalTalentArrData?.fields?.Name?PropasalTalentArrData?.fields?.Name:'--'">
+                                            </td>
+                                            <td
+                                                [innerHTML]="PropasalTalentArrData?.fields?.Show_in_proposal?PropasalTalentArrData?.fields?.Show_in_proposal:'--'">
+                                            </td>
+                                            <td
+                                                [innerHTML]="PropasalTalentArrData?.fields?.Status?PropasalTalentArrData?.fields?.Status:'--'">
+                                            </td>
+                                            <td
+                                                [innerHTML]="PropasalTalentArrData?.fields?.Team_Memo?PropasalTalentArrData?.fields?.Team_Memo:'--'">
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                            <div *ngIf="!loader3 && PropasalTalentArrInfo?.length==0"
+                                class="col-12 text-center fw-bold fs-3 text-danger">Data Not Found</div>
+                            <div class="loader_div row" *ngIf="loader3">
+                                <div class="spinner-border mx-auto text-success" role="status">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ms-5">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <h3 class="m-0 fw-bold">Talents</h3>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <table class="table custom_table table-hovr table-borderless">
+                                <thead>
+                                    <tr class="header_bgColor">
+                                        <th scope="col" class="text-capitalize  position-relative right-border">
+                                            Button</th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            <div
+                                                class="image_div d-flex align-items-center justify-content-center overflow-hidden">
+                                            </div>
+                                        </th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">Name
+                                        </th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            Expertise</th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            Jurisdictions</th>
+                                        <th scope="col" class="text-capitalize position-relative right-border">
+                                            Industry</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngIf="modifyArr?.length!=0">
+                                        <tr class="vertical_align" *ngFor="let dynamicData of modifyArr;let i=index">
+                                            <td><button class="border-0 btn_Work add_btn"
+                                                    [ngClass]="resLoader?'cusror_notAllowed':'cusror_pointer'"
+                                                    [disabled]="resLoader" #addBtn
+                                                    (click)="addTalents(dynamicData?.id)">
+                                                    <span>
+                                                        Add
+                                                    </span>
+                                                    <div class="spinner-border small_loader"
+                                                        *ngIf="resLoader && dynamicData?.id==talentId" role="status">
+                                                    </div>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div
+                                                    class="image_div d-flex align-items-center justify-content-center overflow-hidden">
+                                                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                        alt="">
+                                                </div>
+                                            </td>
+                                            <td>{{dynamicData?.fields?.Name}} </td>
+                                            <td>{{dynamicData?.fields?.Expertise}}</td>
+                                            <td>{{dynamicData?.fields?.Jurisdiction}}</td>
+                                            <td>{{dynamicData?.fields?.Instustry}}</td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                            <div *ngIf="!loader2 &&modifyArr?.length==0"
+                                class="col-12 text-center fw-bold fs-3 text-danger">Data Not Found</div>
+                            <div class="loader_div row" *ngIf="loader2">
+                                <div class="spinner-border mx-auto text-success" role="status">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #statusModal>
+    <div class="modal-header border-0 py-0 alert alert-success m-0" role="alert"
+        [ngClass]="resStatus=='Successfully Store Data'||resStatus=='Successfully Data Delete'?'bg-success':resStatus=='Something Went Wrong! Please Try Again'?'bg-danger':'bg-white'">
+        <h4 class="modal-title text-white fs-5">
+            <i class="bi bi-check-circle-fill"></i>
+            {{resStatus}}
+        </h4>
+        <span aria-hidden="true" class="cusror_pointer text-white fs-3"
+            (click)="modalRef?.hide();resStatus=undefined">&times;</span>
+    </div>
+</ng-template>

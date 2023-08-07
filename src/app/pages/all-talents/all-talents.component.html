@@ -1,0 +1,96 @@
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <img src="../assets/lawflexlogo.png" class="logo_Width mx-auto" alt="">
+        </div>
+        <div class="col-10 mx-auto mt-5 pt-5">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <h3 class="m-0 fw-bold">All Talents</h3>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <table class="table custom_table table-hovr table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-dark right-border">
+                                            <div
+                                                class="image_div d-flex align-items-center justify-content-center overflow-hidden">
+                                            </div>
+                                        </th>
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-dark right-border">Name
+                                        </th>
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-dark right-border">
+                                            Expertise</th>
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-dark right-border">
+                                            Jurisdictions</th>
+                                        <th scope="col"
+                                            class="text-capitalize position-relative text-dark right-border">
+                                            Industry</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="!loaderShow">
+                                    <tr class="vertical_align" *ngFor="let dynamicData of dynamicData;let i=index">
+                                        <td>
+                                            <div
+                                                class="image_div d-flex align-items-center justify-content-center overflow-hidden">
+                                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                                    alt="">
+                                            </div>
+                                        </td>
+                                        <td>{{dynamicData?.Name}} </td>
+                                        <td>{{dynamicData?.Expertise}}</td>
+                                        <td>{{dynamicData?.Jurisdiction}}</td>
+                                        <td>{{dynamicData?.Instustry}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="loader_div row" *ngIf="loaderShow">
+                                <div class="spinner-border mx-auto text-success" role="status">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- *****checkbox***** -->
+
+<div class="row mx-5 my-5">
+    <div class="col-12 pb-3" *ngFor="let userInfoData of userInfoArr;let i=index">
+        <input type="checkbox" class="me-3" (click)="getCheckBox($event.target,userInfoData)">
+        <span>{{userInfoData}}</span>
+        <ng-container *ngFor="let checkData of checkArr">
+            <button *ngIf="checkData?.conditonCheck && userInfoData==checkData?.indeValue" class="btn ms-3 btn-danger"
+                (click)="deleteItems(userInfoData)">delete</button>
+        </ng-container>
+    </div>
+</div>
+
+
+
+<!-- ***select *** -->
+<div class="row m-5">
+    <div class="col-2">
+        <select class="form-select" (change)="passData($event.target)">
+            <option selected>select country</option>
+            <option [value]="countryData?.name" *ngFor="let countryData of countryData">{{countryData?.name}}</option>
+        </select>
+    </div>
+    <div class="col-2" *ngIf="particularCountry.length!=0">
+        <select class="form-select">
+            <option selected>select country name</option>
+            <option [value]="countryData?.name" *ngFor="let particularData of particularCountry[0]">{{particularData}}
+            </option>
+        </select>
+    </div>
+</div>
+
